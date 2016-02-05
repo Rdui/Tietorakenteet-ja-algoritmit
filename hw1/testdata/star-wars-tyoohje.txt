@@ -1,0 +1,26 @@
+Luke Skywalker;21;683
+Leia Organa;50;1709
+Darth Vader;36;1090
+C-3PO;27;939
+R2-D2;4;210
+Han Solo;16;606
+Chewbacca;37;1172
+Obi-Wan Kenobi;22;744
+Qui-Gon Jin;13;403
+Yoda;7;332
+Mace Windu;42;1547
+Mon Mothma;5;150
+Boba Fett;19;768
+Jango Fett;27;1029
+Admiral Ackbar;7;333
+Emperor Palpatine;46;1459
+Padme Amidala;39;1444
+Jar-Jar Binks;11;340
+Boss Nass;17;516
+Darth Maul;46;1495
+General Grievous;49;1581
+Rey;19;769
+BB-8;17;768
+Finn;35;1073
+Kylo Ren;13;454
+Captain Rex;9;232

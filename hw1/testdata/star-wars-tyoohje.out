@@ -1,0 +1,67 @@
+> R star-wars-tyoohje.txt
+> P
+1. Leia Organa: 50 buses, 1709 passengers
+2. General Grievous: 49 buses, 1581 passengers
+3. Darth Maul: 46 buses, 1495 passengers
+4. Emperor Palpatine: 46 buses, 1459 passengers
+5. Mace Windu: 42 buses, 1547 passengers
+6. Padme Amidala: 39 buses, 1444 passengers
+7. Chewbacca: 37 buses, 1172 passengers
+8. Darth Vader: 36 buses, 1090 passengers
+9. Finn: 35 buses, 1073 passengers
+10. Jango Fett: 27 buses, 1029 passengers
+11. C-3PO: 27 buses, 939 passengers
+12. Obi-Wan Kenobi: 22 buses, 744 passengers
+13. Luke Skywalker: 21 buses, 683 passengers
+14. Rey: 19 buses, 769 passengers
+15. Boba Fett: 19 buses, 768 passengers
+16. BB-8: 17 buses, 768 passengers
+17. Boss Nass: 17 buses, 516 passengers
+18. Han Solo: 16 buses, 606 passengers
+19. Kylo Ren: 13 buses, 454 passengers
+20. Qui-Gon Jin: 13 buses, 403 passengers
+21. Jar-Jar Binks: 11 buses, 340 passengers
+22. Captain Rex: 9 buses, 232 passengers
+23. Admiral Ackbar: 7 buses, 333 passengers
+24. Yoda: 7 buses, 332 passengers
+25. Mon Mothma: 5 buses, 150 passengers
+26. R2-D2: 4 buses, 210 passengers
+> X best
+1. Leia Organa: 50 buses, 1709 passengers
+> X worst
+26. R2-D2: 4 buses, 210 passengers
+> S Han Solo
+18. Han Solo: 16 buses, 606 passengers
+> A
+Admiral Ackbar: 7 buses, 333 passengers
+BB-8: 17 buses, 768 passengers
+Boba Fett: 19 buses, 768 passengers
+Boss Nass: 17 buses, 516 passengers
+C-3PO: 27 buses, 939 passengers
+Captain Rex: 9 buses, 232 passengers
+Chewbacca: 37 buses, 1172 passengers
+Darth Maul: 46 buses, 1495 passengers
+Darth Vader: 36 buses, 1090 passengers
+Emperor Palpatine: 46 buses, 1459 passengers
+Finn: 35 buses, 1073 passengers
+General Grievous: 49 buses, 1581 passengers
+Han Solo: 16 buses, 606 passengers
+Jango Fett: 27 buses, 1029 passengers
+Jar-Jar Binks: 11 buses, 340 passengers
+Kylo Ren: 13 buses, 454 passengers
+Leia Organa: 50 buses, 1709 passengers
+Luke Skywalker: 21 buses, 683 passengers
+Mace Windu: 42 buses, 1547 passengers
+Mon Mothma: 5 buses, 150 passengers
+Obi-Wan Kenobi: 22 buses, 744 passengers
+Padme Amidala: 39 buses, 1444 passengers
+Qui-Gon Jin: 13 buses, 403 passengers
+R2-D2: 4 buses, 210 passengers
+Rey: 19 buses, 769 passengers
+Yoda: 7 buses, 332 passengers
+> S Qui-Gon Jin
+20. Qui-Gon Jin: 13 buses, 403 passengers
+> E
+> S Obi-Wan Kenobi
+Player Obi-Wan Kenobi was not found.
+> Q
