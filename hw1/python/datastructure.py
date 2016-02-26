@@ -73,19 +73,25 @@ class Datastructure:
 
 
     def print(self):
+
+
         if self.is_in_order_points == False:
 
             self.mergesort(self.data_list, 1)
             self.leader = 0
             self.least = len(self.data_list)
-
-            self.best_and_worst_are_known = True
             self.is_in_order_points = True
 
         for i in range (0, len(self.data_list)):
             print(str(i+1)+ ". "+ str(self.data_list[i][0])+ ": " + str(self.data_list[i][1]) + " buses, " + str(self.data_list[i][2])+ " passengers")
 
     def print_by_name(self):
+        if self.is_in_order_points == False:
+            self.mergesort(self.data_list, 1)
+            self.leader = 0
+            self.least = len(self.data_list)
+            self.is_in_order_points = True
+
         if self.is_in_order_names == False:
 
             self.mergesort(self.name_list, 0)
@@ -95,18 +101,34 @@ class Datastructure:
             print(str(self.name_list[i][0])+ ": " + str(self.name_list[i][1]) + " buses, " + str(self.name_list[i][2])+ " passengers")
 
     def best(self):
-        if self.is_in_order_points == True:
-            print(str(1)+ ". "+ str(self.data_list[self.leader][0])+ ": " + str(self.data_list[self.leader][1]) + " buses, " + str(self.data_list[self.leader][2])+ " passengers")
+        if self.is_in_order_points == False:
+            self.mergesort(self.data_list, 1)
+            self.leader = 0
+            self.least = len(self.data_list)
+            self.is_in_order_points = True
+
+        print(str(1)+ ". "+ str(self.data_list[self.leader][0])+ ": " + str(self.data_list[self.leader][1]) + " buses, " + str(self.data_list[self.leader][2])+ " passengers")
 
     def worst(self):
-        if self.is_in_order_points == True:
-            print(str(self.least)+ ". "+ str(self.data_list[self.least-1][0])+ ": " + str(self.data_list[self.least-1][1]) + " buses, " + str(self.data_list[self.least-1][2])+ " passengers")
+        if self.is_in_order_points == False:
+            self.mergesort(self.data_list, 1)
+            self.leader = 0
+            self.least = len(self.data_list)
+            self.is_in_order_points = True
+
+        print(str(self.least)+ ". "+ str(self.data_list[self.least-1][0])+ ": " + str(self.data_list[self.least-1][1]) + " buses, " + str(self.data_list[self.least-1][2])+ " passengers")
 
     def empty(self):
         self.data_list = []
         self.name_list = []
 
     def search(self, name):
+        if self.is_in_order_points == False:
+            self.mergesort(self.data_list, 1)
+            self.leader = 0
+            self.least = len(self.data_list)
+            self.is_in_order_points = True
+
         for i in range (len(self.data_list)):
             if str(self.data_list[i][0]) == name:
                 print(str(i+1   )+ ". "+ str(self.data_list[i][0])+ ": " + str(self.data_list[i][1]) + " buses, " + str(self.data_list[i][2])+ " passengers")
