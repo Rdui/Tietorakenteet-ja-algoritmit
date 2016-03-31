@@ -268,7 +268,6 @@ void ReadFile( const string& file, Datastructure& DS )
     string name;
     while( getline( file_stream, line ))
     {
-        std::cout<< line << std::endl;
         istringstream line_stream( line );
         getline(line_stream, ID, ';');
         line_stream >> amnt;
