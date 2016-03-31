@@ -1,0 +1,29 @@
+> R varasto1.txt
+> C
+5 different kinds of candy.
+> F SUK:Vas:8787:324
+Fazer Maitosuklaa 120 93.93
+> F LKS:ZZZ:1234:254
+Product not in warehouse.
+> A SUK:Vas:8787:324 93.93 50 Fazer Maitosuklaa
+> F SUK:Vas:8787:324
+Fazer Maitosuklaa 170 93.93
+> A LKS:ZZZ:1234:254 12.12 2 Paha Karkki
+> C
+6 different kinds of candy.
+> F LKS:ZZZ:1234:254
+Paha Karkki 2 12.12
+> D LKS:ZZZ:1234:254 1
+Amount: 1 Shelf: 12.12
+> F LKS:ZZZ:1234:254
+Paha Karkki 1 12.12
+> D LKS:ZZZ:1234:254 1
+Amount: 0 Shelf: 12.12
+> F LKS:ZZZ:1234:254
+Product not in warehouse.
+> E
+> C
+0 different kinds of candy.
+> F LKS:ZZZ:1234:254
+Product not in warehouse.
+> Q

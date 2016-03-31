@@ -1,0 +1,93 @@
+> R varasto_iso1.txt
+> C
+150 different kinds of candy.
+> F WIN:jfklGHo780:4856:259
+gKQrdBelRhMg 8540 14.96
+> F WIN:jfklGHo780:4856:258
+Product not in warehouse.
+> F WIN:jfklGHo780:4856:594
+iPPpAMLIGnDE 8092 10.45
+> F WIN:jfklGHo780:4856:796
+GdIjgAqKtuNE 2757 85.62
+> R varasto_iso2.txt
+> C
+300 different kinds of candy.
+> F SUK:jklfsd7899sf:3909:641
+wcuUzgETrZnU 2271 53.6
+> F SUK:jklfsd7899sf:1243:826
+ODcJXlRmyNfQ 7247 68.11
+> F SUK:jklfsd7899sf:1244:826
+Product not in warehouse.
+> F WIN:jfklGHo780:4856:259
+gKQrdBelRhMg 8540 14.96
+> R varasto_iso3.txt
+> C
+450 different kinds of candy.
+> F MIX:jsdfio789:6695:206
+fPPNGiOQtfRs 1421 55.9
+> F TIK:jsdfio789:6695:533
+qQQDrnxuOWVh 5808 70.66
+> F WIN:jsdfio789:6695:533
+Product not in warehouse.
+> F SUK:jklfsd7899sf:3909:641
+wcuUzgETrZnU 2271 53.6
+> F WIN:jfklGHo780:4856:259
+gKQrdBelRhMg 8540 14.96
+> R varasto_iso4.txt
+> C
+600 different kinds of candy.
+> F GUM:vp13945:2961:473
+fwUeCWXtpJMt 5986 67.84
+> F TIK:vp20659:9955:926
+dNcTiwFllMOL 6613 38.37
+> F WIN:vp21874:5616:286
+OuZmPPyzQmoG 3897 64.31
+> F MIX:jsdfio789:6695:206
+fPPNGiOQtfRs 1421 55.9
+> F SUK:jklfsd7899sf:3909:641
+wcuUzgETrZnU 2271 53.6
+> F WIN:jfklGHo780:4856:259
+gKQrdBelRhMg 8540 14.96
+> R varasto_iso5.txt
+> C
+750 different kinds of candy.
+> F MIX:vp9596:7973:933
+yItUNtifGvUC 4171 8.80
+> F TIK:vp9596:7973:933
+Product not in warehouse.
+> F MIX:vp9595:7973:933
+Product not in warehouse.
+> F WIN:vp21874:5616:286
+OuZmPPyzQmoG 3897 64.31
+> F MIX:jsdfio789:6695:206
+fPPNGiOQtfRs 1421 55.9
+> F SUK:jklfsd7899sf:3909:641
+wcuUzgETrZnU 2271 53.6
+> F WIN:jfklGHo780:4856:259
+gKQrdBelRhMg 8540 14.96
+> R varasto_iso6.txt
+> C
+900 different kinds of candy.
+> F WIN:vp17636:5075:945
+akHPViPHQOrU 5011 39.10
+> F WIN:vp8547:5075:945
+akHPViPHQOrU 5011 39.10
+> F TIK:vp8547:5075:946
+Product not in warehouse.
+> F MIX:vp9596:7973:933
+yItUNtifGvUC 4171 8.80
+> F WIN:vp21874:5616:286
+OuZmPPyzQmoG 3897 64.31
+> F MIX:jsdfio789:6695:206
+fPPNGiOQtfRs 1421 55.9
+> F SUK:jklfsd7899sf:3909:641
+wcuUzgETrZnU 2271 53.6
+> F WIN:jfklGHo780:4856:259
+gKQrdBelRhMg 8540 14.96
+> D WIN:vp9907:5075:945 11
+Amount: 5000 Shelf: 39.10
+> D SMK:jsdfio789:6695:805 8609
+Amount: 0 Shelf: 69.59
+> C
+899 different kinds of candy.
+> Q
