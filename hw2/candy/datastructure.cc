@@ -5,7 +5,7 @@
 
 Datastructure::Datastructure()
 {
-    for (int i = 0; i < 1000; i++){
+    for (int i = 0; i < varasto_size; i++){
         varasto_[i] = new candy;
         varasto_[i]->next = nullptr;
     }
@@ -17,11 +17,14 @@ Datastructure::~Datastructure()
 
 }
 
+
+// gives the hash key for the ID
 size_t anna_key(const std::string& ID){
     std::hash<std::string> hash_funktio;
     return (hash_funktio(ID) % 1000);
 }
 
+// adds candies to the hash table
 void Datastructure::add(const string &ID, const string &location,
                         unsigned int amount, const string &name)
 {
@@ -57,6 +60,7 @@ void Datastructure::add(const string &ID, const string &location,
         return;
     }
 }
+
 
 void Datastructure::substract(const string &ID, unsigned int amount)
 {
@@ -126,8 +130,7 @@ void Datastructure::substract(const string &ID, unsigned int amount)
 
         else if(ptr_eka->ID == ID and ptr_eka->amnt == amount){
             del = ptr_eka->next;
-            std::cout<< "Amount: 0 Shelf: " << del->loc << std::endl;
-            std::cout<< ptr_edellinen->name << " " << del->name<< std::endl;
+            std::cout<< "Amount: 0 Shelf: " << ptr_eka->loc << std::endl;
             ptr_edellinen->next = del;
             delete ptr_eka;
             counter -= 1;
@@ -154,6 +157,7 @@ void Datastructure::find(const string &ID) const
         }
     }
     std::cout<<"Product not in warehouse." << std::endl;
+    delete ptr;
 
 }
 
@@ -167,6 +171,7 @@ void Datastructure::empty()
     candy* ptr_del;
     candy* ptr_seuraava;
     counter = 0;
+    // loops the whole array and deletes the pointers and the content of the array
     for (int i = 0; i < varasto_size; i++){
         if (varasto_[i]->ID != "" and varasto_[i]->next == nullptr){
             varasto_[i] = new candy;
