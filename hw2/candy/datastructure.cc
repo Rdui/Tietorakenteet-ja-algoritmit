@@ -21,7 +21,7 @@ Datastructure::~Datastructure()
 // gives the hash key for the ID
 size_t anna_key(const std::string& ID){
     std::hash<std::string> hash_funktio;
-    return (hash_funktio(ID) % 1000);
+    return (hash_funktio(ID) % 1777);
 }
 
 // adds candies to the hash table

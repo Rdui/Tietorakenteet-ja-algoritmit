@@ -51,7 +51,7 @@ private:
       struct candy *next = nullptr;
   };
     // Add your own implementation here
-    static const int varasto_size = 7757; // the size of the hash table (7757)
+    static const int varasto_size = 1777; // the size of the hash table (1777)
     candy* varasto_[varasto_size];
     size_t counter;
  
