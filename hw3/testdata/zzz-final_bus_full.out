@@ -1,0 +1,181 @@
+> R zzz-final_bus_full.txt
+> C
+2269 stops, 226 routes, 3510 buses.
+> P 70
+Aleksis Kiven katu
+> B 70
+24: Aleksis Kiven katu - Itä-Hervanta
+> P 5018
+Lapinniemen kylpylä
+> B 5018
+2: Pyynikintori - Rauhaniemi
+2S: Pyynikintori - Rauhaniemi
+> T 07:00 70 5018
+24: Aleksis Kiven katu - Itä-Hervanta
+  07:10 70, Aleksis Kiven katu
+->07:11 38, Finlayson
+47: Eteläpuisto - Suinulan asema
+  07:36 38, Finlayson
+  07:37 536, Paloasema
+  07:38 529, Klassillinen koulu
+->07:39 508, Rautatieasema D
+2: Pyynikintori - Rauhaniemi
+  07:53 508, Rautatieasema D
+  07:55 540, Tammelankatu
+  07:56 542, Tammelantori
+  07:57 546, Tapionkatu
+  07:58 550, Koiratori
+  07:59 534, Kastinsilta
+  08:00 5014, Naistenlahti
+->08:01 5018, Lapinniemen kylpylä
+> P 8035
+Kangasala
+> B 8035
+40: Pikonlinna - Koskipuisto G
+40K: Kaivannon sairaala - Koskipuisto G
+40: Kangasala - Koskipuisto G
+42: Sahalahti L - Pyynikintori
+44H: Kangasala - Valkeakosken linja-autoasema
+44A: Kangasala - Valkeakosken linja-autoasema
+44A: Kangasalan ammattiopisto - Valkeakosken linja-autoasema
+44: Kangasalan ammattiopisto - Valkeakosken linja-autoasema
+42: Pohja - Pyynikintori
+42: Kuhmoinen MH - Pyynikintori
+> P 3060
+Korkinmäki
+> B 3060
+31: Korkinmäki - Pyynikintori
+> T 17:21 8035 3060
+40: Pikonlinna - Koskipuisto G
+  17:21 8035, Kangasala
+  17:22 8031, Tapulinmäki
+  17:23 8029, Rekiälä
+  17:24 8027, Kangasalan jäähalli
+  17:25 8025, Peiponpolku
+  17:26 8023, Kiuruntie
+  17:27 8021, Pikontie
+  17:28 8019, Nikkarintie
+  17:29 8017, Harjunsalo
+  17:30 8015, Isolukko
+  17:31 8013, Suoraman työväentalo
+  17:32 8011, Lentolantie
+  17:33 8009, Lentolankuja
+  17:34 8007, Mäkirinteentie
+  17:35 8005, Kappeli
+  17:36 8003, Kasarmi
+  17:37 8001, Liuttu
+  17:39 4115, Aukionkatu
+  17:40 4117, Kaukajärventie
+  17:42 4055, Vehmaistenkatu
+  17:43 4053, Kristilla
+  17:45 4049, Yrittäjänkatu
+  17:46 4047, Hankkio
+  17:47 4023, Vilunen
+  17:48 4021, Etu-Hankkionkatu
+  17:49 4019, Messukylän kirkko
+  17:50 4017, Kivikirkko
+  17:51 4015, Aakkula
+  17:52 4013, Messukylänkatu
+  17:53 4011, Vuohensilta
+  17:54 4007, Tilhentie
+  17:55 4005, Kalevantie
+  17:56 4003, Takojankatu
+  17:57 4001, Tarkonpuisto
+  17:59 565, Yliopisto
+  18:00 561, Tampere-talo
+  18:02 509, Itsenäisyydenkatu 3
+  18:04 505, Rautatieasema A
+->18:07 514, Koskipuisto G
+14: Petsamo - Pereentie
+  18:08 514, Koskipuisto G
+->18:09 522, Linja-autoasema
+31: Pyynikintori - Korkinmäki
+  18:09 522, Linja-autoasema
+  18:11 524, Tampereen valtatie
+  18:12 3000, Viinikan liittymä
+  18:14 3901, Kuokkamaantie 2
+  18:15 3031, Kuokkamaantie 6
+  18:16 3100, Kuokkamaantie 14
+  18:17 3068, Jokipohjantie 18
+  18:18 3070, Liikennelaitos
+  18:19 3072, Jokipohjantie 26
+  18:20 3074, Muotialantie 38
+  18:21 3076, Siirtolapuutarha
+  18:22 3078, Muotialantie 
+  18:23 3200, Muotialantie 64
+  18:24 3098, Steiner-koulu
+  18:25 3653, Laulunmaankatu
+  18:26 3142, Korkinmäenkatu
+  18:27 3144, Kyläkeinunkatu
+->18:29 3060, Korkinmäki
+> P 505
+Rautatieasema A
+> B 505
+40: Pikonlinna - Koskipuisto G
+40K: Kaivannon sairaala - Koskipuisto G
+40: Kangasala - Koskipuisto G
+25: Janka - Tahmela
+27: Irjala - Ryydynpohja
+1B: Vatiala - Teollisuustie
+1A: Vatiala - Lentoasema
+1C: Vatiala - Vaitti
+1: Vatiala - Suupantori
+1: TAYS L - Suupantori
+20: Hikivuori - Pyynikintori
+17: Juvelankatu - Kalkku
+8: Atala - Haukiluoma
+8R: Risso - Haukiluoma
+13: Hermia - Ylöjärvi Matkatie
+14: Petsamo - Pereentie
+3: Etelä-Hervanta - Keskustori D
+3V: Etelä-Hervanta - Lentävänniemi
+29K: Aitolahdentie 36 - Kalkku
+15: Järvensivu - Pispalanharju 
+14N: Petsamo - Nokian asema E
+28: Sorilan koulu - Laatokantie
+28Y: Lintukalliontie - Keskustori I
+> P 1017
+Lielahtikeskus
+> B 1017
+27: Ryydynpohja - Irjala
+3: Lentävänniemi - Etelä-Hervanta
+3V: Lentävänniemi - Etelä-Hervanta
+3R: Lentävänniemi - Etelä-Hervanta
+28: Laatokantie - Sorilan koulu
+> T 15:00 505 1017
+25: Janka - Tahmela
+  15:00 505, Rautatieasema A
+  15:02 501, Koskipuisto A
+  15:04 36, Keskustori B
+  15:05 18, Tuulensuu B
+->15:06 24, Metso
+21: Keskustori D - Länsitori
+  15:07 24, Metso
+  15:08 28, Pyynikintori
+  15:10 98, Savilinna
+  15:12 1002, Santalahti
+  15:13 1006, Rantatie
+->15:15 1010, Lielahden asema
+27: Irjala - Ryydynpohja
+  15:15 1010, Lielahden asema
+  15:16 1072, Harjuntausta 4
+  15:18 1014, Harjuntausta
+  15:20 1409, Lielahden koulu
+  15:21 1052, Possilankatu 2-4
+  15:22 1060, Possilankatu 18
+  15:23 1064, Lintulamminkatu 4
+  15:24 1054, Kukkolankatu
+  15:25 1056, Viholankuja
+  15:26 1058, Ritalankatu
+->15:27 1071, Ryydynpohja
+27: Ryydynpohja - Irjala
+  15:30 1071, Ryydynpohja
+  15:31 1059, Ritalankatu
+  15:32 1057, Viholankatu
+  15:33 1055, Kukkolankatu
+  15:34 1065, Possilankatu 25
+  15:35 1061, Possilankatu 15
+  15:36 1053, Teivaalantie 7
+->15:37 1017, Lielahtikeskus
+> Q
+This program uses bus data from Tampereen kaupunkiliikenne (TKL)

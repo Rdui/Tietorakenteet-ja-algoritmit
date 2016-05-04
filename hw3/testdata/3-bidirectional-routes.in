@@ -1,0 +1,11 @@
+R 3-bidirectional-routes.txt
+C
+B 3
+B 8
+B 5
+T 11:00 1 8
+T 14:15 7 2
+T 13:00 2 4
+T 13:30 8 7
+T 13:35 8 7
+Q
