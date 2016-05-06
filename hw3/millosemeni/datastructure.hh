@@ -55,6 +55,11 @@ public:
 
 private:
 
+    int calculate_starting_minutes(int stop);
+
+    struct stop_data_;
+    struct gray_nodes;
+
     struct bus{
         int bus_id;
         unsigned int start_hours;
@@ -71,12 +76,18 @@ private:
         int route_number;
         struct stop_data_ *ptr = nullptr;
         int weight = -1;
+        int route_nro;
     };
 
     struct stop_data_{
+        std::string colour;
         int stop_id_;
         std::string stop_name_;
         std::vector<edge*> edges;
+        int weight = INT8_MAX;
+        stop_data_ *last_stop = nullptr;
+
+        int route_nro;
     };
 
 
@@ -91,8 +102,27 @@ private:
         std::vector<bus*> buses;
     };
 
+    struct route_stop{
+        int stop_id;
+        int last_stop;
+        int time;
+        std::string colour;
+    };
+
     std::vector<stop_data_*> stops;
     std::vector<route_data_*> routes;
+
+    std::vector<stop_data_*> gray_nodes;
+    std::vector<stop_data_*> dijkstra;
+    stop_data_ *begin_point;
+
+
+    bool new_edge;
+    connection *last_connection;
+    std::vector<stop_data_*> shortest_route;
+
+    stop_data_ * last;
+    stop_data_ *first_stop;
 
 };
 
