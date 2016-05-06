@@ -9,22 +9,17 @@ Datastructure::Datastructure()
 
 Datastructure::~Datastructure()
 {
+    empty();
 }
-
+// stops will act as nodes in the graph
 void Datastructure::add_stop(int stop_id, std::string stop_name)
 {
     stop_data_ *stop = new stop_data_;
-    // vai stop_data_ *rip = new stop_data_(); ????
 
     stop->stop_id_ = stop_id;
     stop->stop_name_ = stop_name;
 
     stops.push_back(stop);
-
-    /*for (stop_data_ *loop : stops){
-        std::cout<< loop->stop_name_<< std::endl;
-    }
-    std::cout<< "end               end"<< std::endl;*/
 }
 
 void Datastructure::add_route(int route_id, std::string route_name)
@@ -46,25 +41,20 @@ void Datastructure::add_stop_to_route(int route_id, int stop_id, unsigned int mi
     for(route_data_ *iter : routes){
         if (iter->route_id_ == route_id){
             connection * conn = new connection;
-            std::cout << minutes << std::endl;
+            //std::cout << minutes << std::endl;
             conn->minutes = minutes;
             conn->stop_id = stop_id;
             iter->connections.insert(iter->connections.begin(), conn);
-            //
-            //std::cout << routes.size() << std::endl;
-            //std::cout<< iter->connections.size() << std::endl;
             break;
         }
     }
 
+    // This for loop creates the edges for nodes
     for (route_data_ *route : routes){
         stop_data_ *next_stop = nullptr;
         for(connection *conn: route->connections){
             for(stop_data_ *stop : stops){
                 if(conn->stop_id == stop->stop_id_){
-                    //std::cout<< "match" << std::endl;
-                    //std::cout<< conn->stop_id << std::endl;
-                    //std::cout<< stop->stop_id_ << std::endl;
                     new_edge = true;
 
                     if(next_stop != nullptr){
@@ -83,18 +73,7 @@ void Datastructure::add_stop_to_route(int route_id, int stop_id, unsigned int mi
                         e->minutes = conn->minutes;
                         e->weight = (last_connection->minutes) - (conn->minutes);
                         e->route_nro = route_id;
-                        /*std::cout<< stop->stop_id_ << std::endl;
-                        std::cout<< e->route_number << std::endl;
-                        std::cout<< e->weight << std::endl;*/
                         stop->edges.push_back(e);
-                        /*std::cout<< stop->stop_name_ << std::endl;
-                        std::cout<< stop->edges.size() << std::endl;
-                        std::cout<< stop->stop_id_ << std::endl;
-                        std::cout<< " " <<std::endl;*/
-
-                        /*for(edge *eg: stop->edges){
-                            std::cout << eg->route_number << std::endl;
-                        }*/
                     }
 
                     next_stop = stop;
@@ -105,42 +84,17 @@ void Datastructure::add_stop_to_route(int route_id, int stop_id, unsigned int mi
         }
 
     }
-
-
-
-    /*for(route_data_ *iter : routes){
-        struct stop_data_ *next_stop = nullptr;
-        for(connection *conn : iter->connections){
-            for(struct Datastructure::stop_data_ *stop : stops){
-                std::cout << stop->stop_id_ << std::endl;
-                std::cout << conn->stop_id << std::endl;
-                if(stop->stop_id_ == conn->stop_id){
-                    std::cout << "match" << std::endl;
-                    edge* edg = new edge;
-                    if (next_stop != nullptr){
-                        edg->ptr = next_stop;
-
-                    }
-                    stop->edges.push_back(edg);
-                    next_stop = stop;
-                    std::cout<< stop->edges.size() << std::endl;
-                }
-            }
-        }
-    }*/
-
 }
 
 void Datastructure::add_bus(int bus_id, int route_id, unsigned int start_hours, unsigned int start_minutes)
 {
-    std::cout<< bus_id << std::endl;
     for(route_data_ *iter : routes){
         if (iter->route_id_ == route_id){
             bus* b = new bus;
             b->bus_id = bus_id;
             b->start_hours = start_hours;
             b->start_minutes = start_minutes;
-            //std::cout<< b->bus_id << std::endl;
+            iter->buses.push_back(b);
             break;
         }
     }
@@ -148,6 +102,10 @@ void Datastructure::add_bus(int bus_id, int route_id, unsigned int start_hours, 
 
 void Datastructure::empty()
 {
+    stops.clear();
+    routes.clear();
+    dijkstra.clear();
+    gray_nodes.clear();
 }
 
 void Datastructure::print_stop(int stop_id)
@@ -179,6 +137,16 @@ void Datastructure::print_buses(int stop_id)
 
 void Datastructure::print_statistics()
 {
+    int number_of_stops = 0;
+    int number__of_routes = 0;
+    int number_of_buses = 0;
+
+    for(route_data_ *route: routes){
+        number_of_stops += route->connections.size();
+        number_of_buses += route->buses.size();
+    }
+    number__of_routes = routes.size();
+    std::cout << number_of_stops <<" stops, "<< number__of_routes << " routes, "<< number_of_buses <<" buses."<<  std::endl;
 }
 
 void Datastructure::print_fastest_journey(int start_stop, int end_stop, unsigned int hours, unsigned int minutes)
@@ -187,6 +155,7 @@ void Datastructure::print_fastest_journey(int start_stop, int end_stop, unsigned
 
 
 
+    // the following 15 lines is the dijkstra algorithm.
     for (stop_data_ *stop: stops){
         stop->colour = "white";
         stop->last_stop = nullptr;
@@ -222,7 +191,6 @@ void Datastructure::print_fastest_journey(int start_stop, int end_stop, unsigned
         if (iter->stop_id_ == end_stop){
             found_route = true;
             while(last != nullptr){
-                //std::cout<< last->stop_id_ << std::endl;
                 shortest_route.insert(shortest_route.begin(), last);
                 last = last->last_stop;
 
@@ -233,19 +201,14 @@ void Datastructure::print_fastest_journey(int start_stop, int end_stop, unsigned
                 if (stop->last_stop != nullptr){
                     stop->last_stop->route_nro = stop->route_nro;
                     first_stop = stop->last_stop;
-                    //std::cout<< first_stop->stop_id_ << std::endl;
                     break;
                 }
             }
-            //int starting_point_minutes = calculate_starting_minutes(first_stop->stop_id_);
 
 
             int route_number = -10;
             for(stop_data_ *stop : shortest_route){
-                //std::cout <<stop->route_nro << std::endl;
-                //std::cout <<route_number << std::endl;
                 if (route_number != stop->route_nro){
-                    //starting_point_minutes = calculate_starting_minutes(stop->route_nro);
                     for(route_data_ *route : routes){
                         if (route->route_id_ == stop->route_nro){
                             std::cout<< route->route_name_<< std::endl;
@@ -254,7 +217,12 @@ void Datastructure::print_fastest_journey(int start_stop, int end_stop, unsigned
                     }
                 }
                 route_number = stop->route_nro;
-                std::cout <<"  ";
+                if(stop->stop_id_ == end_stop){
+                    std::cout<<"->";
+                }
+                else{
+                    std::cout <<"  ";
+                }
                 std::cout <<hours<< ":"<<minutes+stop->weight;
                 std::cout <<"  ";
                 std::cout <<stop->stop_id_;
@@ -268,16 +236,3 @@ void Datastructure::print_fastest_journey(int start_stop, int end_stop, unsigned
         std::cout <<"No route!"<< std::endl;
     }
 }
-
-/*int Datastructure::calculate_starting_minutes(int stop){
-    for(route_data_ *route : routes){
-        if (stop == route->route_id_){
-            for(connection *c : route->connections){
-                if(c->stop_id == stop){
-                    //std::cout << c->minutes << std::endl;
-                    return c->minutes;
-                }
-            }
-        }
-    }
-}*/
