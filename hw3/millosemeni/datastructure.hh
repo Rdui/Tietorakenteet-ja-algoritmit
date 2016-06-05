@@ -54,6 +54,7 @@ public:
     Datastructure& operator=(const Datastructure&) = delete;
 
 private:
+    // Add your own implementation here
 
     int calculate_starting_minutes(int stop);
 
@@ -62,12 +63,12 @@ private:
 
     struct bus{
         int bus_id;
-        unsigned int start_hours;
-        unsigned int start_minutes;
+        int start_hours;
+        int start_minutes;
     };
 
     struct connection{
-        unsigned int minutes;
+        int minutes;
         int stop_id;
     };
 
@@ -92,7 +93,7 @@ private:
 
 
 
-    // Add your own implementation here
+
 
 
     struct route_data_{
@@ -123,6 +124,10 @@ private:
 
     stop_data_ * last;
     stop_data_ *first_stop;
+
+    int waiting_time = 0;
+    int waiting_time_hours = 0;
+    int calculate_waiting_time(int stop, int route,int hours, int minutes);
 
 };
 
