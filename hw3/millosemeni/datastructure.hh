@@ -5,6 +5,7 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 
 
 
@@ -75,7 +76,7 @@ private:
     struct edge{
         unsigned int minutes;
         int route_number;
-        struct stop_data_ *ptr = nullptr;
+        std::shared_ptr<struct stop_data_> ptr = nullptr;
         int weight = -1;
         int route_nro;
     };
@@ -84,9 +85,9 @@ private:
         std::string colour;
         int stop_id_;
         std::string stop_name_;
-        std::vector<edge*> edges;
+        std::vector<std::shared_ptr<edge>> edges;
         int weight = INT8_MAX;
-        stop_data_ *last_stop = nullptr;
+        std::shared_ptr<stop_data_> last_stop = nullptr;
 
         int route_nro;
     };
@@ -99,8 +100,8 @@ private:
     struct route_data_{
         int route_id_;
         std::string route_name_;
-        std::vector<connection*> connections;
-        std::vector<bus*> buses;
+        std::vector<std::shared_ptr<connection>> connections;
+        std::vector<std::shared_ptr<bus>> buses;
     };
 
     struct route_stop{
@@ -110,23 +111,23 @@ private:
         std::string colour;
     };
 
-    std::vector<stop_data_*> stops;
-    std::vector<route_data_*> routes;
+    std::vector<std::shared_ptr<stop_data_>> stops;
+    std::vector<std::shared_ptr<route_data_>> routes;
 
-    std::vector<stop_data_*> gray_nodes;
-    std::vector<stop_data_*> dijkstra;
-    stop_data_ *begin_point;
+    std::vector<std::shared_ptr<stop_data_>> gray_nodes;
+    std::vector<std::shared_ptr<stop_data_>> dijkstra;
+    std::shared_ptr<stop_data_> begin_point;
 
 
     bool new_edge;
-    connection *last_connection;
-    std::vector<stop_data_*> shortest_route;
-
-    stop_data_ * last;
-    stop_data_ *first_stop;
+    std::vector<std::shared_ptr<stop_data_>> shortest_route;
+    std::shared_ptr<stop_data_>  last;
+    std::shared_ptr<stop_data_> first_stop;
 
     int waiting_time = 0;
     int waiting_time_hours = 0;
+
+    //calculates the waiting time at a stop
     int calculate_waiting_time(int stop, int route,int hours, int minutes);
 
 };

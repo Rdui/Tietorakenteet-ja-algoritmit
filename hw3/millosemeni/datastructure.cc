@@ -14,8 +14,7 @@ Datastructure::~Datastructure()
 // stops will act as nodes in the graph
 void Datastructure::add_stop(int stop_id, std::string stop_name)
 {
-    stop_data_ *stop = new stop_data_;
-
+    std::shared_ptr<stop_data_> stop(new stop_data_);
     stop->stop_id_ = stop_id;
     stop->stop_name_ = stop_name;
 
@@ -24,7 +23,7 @@ void Datastructure::add_stop(int stop_id, std::string stop_name)
 
 void Datastructure::add_route(int route_id, std::string route_name)
 {
-    route_data_ *route = new route_data_;
+    std::shared_ptr<route_data_> route(new route_data_);
 
     route->route_id_ = route_id;
     route->route_name_ = route_name;
@@ -36,11 +35,17 @@ void Datastructure::add_route(int route_id, std::string route_name)
 }
 
 void Datastructure::add_stop_to_route(int route_id, int stop_id, unsigned int minutes)
-{
 
-    for(route_data_ *iter : routes){
+{
+    std::shared_ptr<connection> last_connection (new connection);
+
+
+
+
+
+    for(std::shared_ptr<route_data_> iter : routes){
         if (iter->route_id_ == route_id){
-            connection * conn = new connection;
+            std::shared_ptr<connection> conn (new connection);
             //std::cout << minutes << std::endl;
             conn->minutes = minutes;
             conn->stop_id = stop_id;
@@ -50,15 +55,15 @@ void Datastructure::add_stop_to_route(int route_id, int stop_id, unsigned int mi
     }
 
     // This for loop creates the edges for nodes
-    for (route_data_ *route : routes){
-        stop_data_ *next_stop = nullptr;
-        for(connection *conn: route->connections){
-            for(stop_data_ *stop : stops){
+    for (std::shared_ptr<route_data_> route : routes){
+        std::shared_ptr<stop_data_> next_stop(new stop_data_);
+        for(std::shared_ptr<connection> conn: route->connections){
+            for(std::shared_ptr<stop_data_> stop : stops){
                 if(conn->stop_id == stop->stop_id_){
                     new_edge = true;
 
                     if(next_stop != nullptr){
-                        for(edge *edg : stop->edges){
+                        for(std::shared_ptr<edge> edg : stop->edges){
                             if (edg->route_number == next_stop->stop_id_){
                                 new_edge = false;
                                 break;
@@ -67,7 +72,7 @@ void Datastructure::add_stop_to_route(int route_id, int stop_id, unsigned int mi
                     }
 
                     if(next_stop != nullptr && new_edge == true){
-                        edge *e = new edge;
+                        std::shared_ptr<edge> e (new edge);
                         e->route_number = next_stop->stop_id_;
                         e->ptr = next_stop;
                         e->minutes = conn->minutes;
@@ -88,9 +93,9 @@ void Datastructure::add_stop_to_route(int route_id, int stop_id, unsigned int mi
 
 void Datastructure::add_bus(int bus_id, int route_id, unsigned int start_hours, unsigned int start_minutes)
 {
-    for(route_data_ *iter : routes){
+    for(std::shared_ptr<route_data_> iter : routes){
         if (iter->route_id_ == route_id){
-            bus* b = new bus;
+            std::shared_ptr<bus> b (new bus);
             b->bus_id = bus_id;
             b->start_hours = start_hours;
             b->start_minutes = start_minutes;
@@ -114,7 +119,7 @@ void Datastructure::print_stop(int stop_id)
 {
 
     bool found_stop = false;
-    for (stop_data_ *stop : stops){
+    for (std::shared_ptr<stop_data_> stop : stops){
         if(stop->stop_id_ == stop_id){
             std::cout<< stop->stop_name_ << std::endl;
             found_stop = true;
@@ -129,8 +134,8 @@ void Datastructure::print_stop(int stop_id)
 void Datastructure::print_buses(int stop_id)
 {
     bool found_bus = false;
-    for (route_data_ *route : routes){
-        for(connection *conn: route->connections){
+    for (std::shared_ptr<route_data_> route : routes){
+        for(std::shared_ptr<connection> conn: route->connections){
             if(conn->stop_id == stop_id){
                 std::cout<< route->route_name_ << std::endl;
                 found_bus = true;
@@ -149,7 +154,7 @@ void Datastructure::print_statistics()
     int number__of_routes = 0;
     int number_of_buses = 0;
 
-    for(route_data_ *route: routes){
+    for(std::shared_ptr<route_data_> route: routes){
         number_of_stops += route->connections.size();
         number_of_buses += route->buses.size();
     }
@@ -162,11 +167,11 @@ void Datastructure::print_statistics()
 int Datastructure::calculate_waiting_time(int stop, int route_id, int hours, int minutes){
 
     int waiting_time_in_minutes = 0;
-    for(route_data_ *route :routes){
+    for(std::shared_ptr<route_data_> route :routes){
         if (route->route_id_ == route_id){
-            for(connection *conn : route->connections){
+            for(std::shared_ptr<connection> conn : route->connections){
                 if(conn->stop_id == stop){
-                    for(bus *b : route->buses){
+                    for(std::shared_ptr<bus> b : route->buses){
                         if( ((b->start_hours*60)+b->start_minutes + conn->minutes) > ((hours*60) +minutes)){
                             waiting_time_in_minutes = ((b->start_hours-hours)*60 +b->start_minutes + conn->minutes) - ( + minutes);
                             return waiting_time_in_minutes;
@@ -189,12 +194,12 @@ void Datastructure::print_fastest_journey(int start_stop, int end_stop, unsigned
     waiting_time_hours = 0;
     int time=0;
 
-    for (stop_data_ *stop: stops){
+    for (std::shared_ptr<stop_data_> stop: stops){
         stop->colour = "white";
         stop->last_stop = nullptr;
         stop->weight = INT8_MAX;
     }
-    for (stop_data_ *stop: stops){
+    for (std::shared_ptr<stop_data_> stop: stops){
         if(stop->stop_id_ == start_stop){
             stop->weight = 0;
             begin_point = stop;
@@ -208,8 +213,8 @@ void Datastructure::print_fastest_journey(int start_stop, int end_stop, unsigned
     bool line_changed = false;
 
     while (gray_nodes.size() != 0) {
-        stop_data_ *iter = gray_nodes[0];
-        for(edge *e : iter->edges){
+        std::shared_ptr<stop_data_> iter = gray_nodes[0];
+        for(std::shared_ptr<edge> e : iter->edges){
             if(e->ptr->colour == "white"){
                 e->ptr->colour = "gray";
                 gray_nodes.push_back(e->ptr);
@@ -230,7 +235,7 @@ void Datastructure::print_fastest_journey(int start_stop, int end_stop, unsigned
 
         }
         //int counter = 0;
-        for(stop_data_ *stop : shortest_route){
+        for(std::shared_ptr<stop_data_> stop : shortest_route){
             //counter += 1;
             if (stop->last_stop != nullptr){
                 stop->last_stop->route_nro = stop->route_nro;
@@ -241,10 +246,10 @@ void Datastructure::print_fastest_journey(int start_stop, int end_stop, unsigned
 
 
         int route_number = -1;
-        for(stop_data_ *stop : shortest_route){
+        for(std::shared_ptr<stop_data_> stop : shortest_route){
             if (route_number != stop->route_nro){
 
-                for(route_data_ *route : routes){
+                for(std::shared_ptr<route_data_> route : routes){
                     if (route->route_id_ == stop->route_nro){
                         if(stop->last_stop == nullptr){
                             waiting_time = waiting_time + calculate_waiting_time(stop->stop_id_, route->route_id_, hours+ waiting_time_hours, minutes+time);
