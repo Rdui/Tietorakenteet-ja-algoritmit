@@ -1,7 +1,7 @@
 # Tietorakenteet-ja-algoritmit
 The code produced during the course tietorakenteet ja algoritmit (datastructures and algorithms).
 
-hw1 contains: 
+hw1 contains: Inside the Python folder is a code implementation of using mergesort to sort given data.
 
 hw2 contains:
 
