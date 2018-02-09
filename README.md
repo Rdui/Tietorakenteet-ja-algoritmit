@@ -6,6 +6,6 @@ hw1 contains: Inside the Python folder is a code implementation of using mergeso
 hw2 contains: The assignment was to create a hash table and use it as a datastructure for a warehouse.
               The idea of the hash table was to provide a efficient way to store and fetch data.
 
-hw3 contains: Raw data of Tampere public transportation is gathered and set inside a datastructure.
+hw3 contains: Raw data of Tampere public transportation is gathered and set inside a tree datastructure.
               User can use the datastructure to get the fastest route around Tampere. The fastest
               route is calculated by using Dijkstra algorithm.
